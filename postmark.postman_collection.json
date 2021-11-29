@@ -1,0 +1,3922 @@
+{
+	"info": {
+		"_postman_id": "a579c70e-e650-395f-91ee-0709521aa8c2",
+		"name": "Postmark",
+		"description": "This Postman collection provides a comprehensive set of pre-configured API requests to interact with **Postmark**, a powerful transactional email service.\n\nThe collection is designed to help developers and QA engineers test and integrate with the Postmark API effortlessly, offering a user-friendly way to explore and utilize its features.\n\n**Getting Started**\n\n- **Import the Collection**: Load the collection into Postman via the import feature.\n    \n- **Set Up Your Environment**: Configure a Postman environment with your **Postmark Server Token** and **Postmark Account Token** Key, and **API Url**\n    \n- Please make sure to update random id's with appropriate values, like bounce with specific id you want to test\n    \n- **Explore Endpoints**: Use the organized folders to navigate through Postmark API capabilities and test them directly.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1751"
+	},
+	"item": [
+		{
+			"name": "Bounces",
+			"item": [
+				{
+					"name": "/deliveryStats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/deliveryStats",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"deliveryStats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bounces",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/bounces?count=130&offset=0",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"",
+								"bounces"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "130"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bounces?MessageID=ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/bounces?messageID={{$randomUUID}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bounces"
+							],
+							"query": [
+								{
+									"key": "messageID",
+									"value": "{{$randomUUID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bounces/tags",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/bounces/tags",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bounces",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bounces/id/activate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/bounces/{{$randomInt}}/activate",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bounces",
+								"{{$randomInt}}",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bounces/id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/bounces/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bounces",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bounces/id/dump",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/bounces/{{$randomInt}}/dump",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bounces",
+								"{{$randomInt}}",
+								"dump"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bounces?parameters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/bounces?count=10&offset=0&type=HardBounce",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"",
+								"bounces"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "type",
+									"value": "HardBounce"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/deliveryStats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/deliveryStats",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"deliveryStats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "/messages/outbound",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/messages/outbound?count=5&offset=0",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"outbound"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "5"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/messages/outbound/id/dump",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/messages/outbound/{{$randomUUID}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"outbound",
+								"{{$randomUUID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/messages/outbound/id/details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/messages/outbound/{{$randomUUID}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"outbound",
+								"{{$randomUUID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/messages/inbound",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/messages/inbound?count=10&offset=0&status=blocked",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"inbound"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "status",
+									"value": "blocked"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/messages/inbound/id/details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/messages/inbound/{{$randomUUID}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"inbound",
+								"{{$randomUUID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/messages/opens",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/messages/outbound/opens?offset=0&count=500&messageStream=outbound",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"outbound",
+								"opens"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "count",
+									"value": "500"
+								},
+								{
+									"key": "messageStream",
+									"value": "outbound"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/messages/opens/id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/messages/outbound/opens/{{$randomUUID}}?count=5&offset=0",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"outbound",
+								"opens",
+								"{{$randomUUID}}"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "5"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/messages/clicks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/messages/outbound/clicks?offset=0&count=10",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"outbound",
+								"clicks"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "count",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/messages/clicks/id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/messages/outbound/clicks/{{$randomUUID}}}?count=1&offset=0",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"outbound",
+								"clicks",
+								"{{$randomUUID}}}"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "1"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/messages/inbound/id/bypass",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{api_url}}/messages/inbound/{{$randomUUID}}}/bypass",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"inbound",
+								"{{$randomUUID}}}",
+								"bypass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/messages/inbound/id/retry",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{api_url}}/messages/inbound/{{$randomUUID}}}/retry",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"messages",
+								"inbound",
+								"{{$randomUUID}}}",
+								"retry"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stats",
+			"item": [
+				{
+					"name": "/stats/outbound",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound?messageStream=outbound",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound"
+							],
+							"query": [
+								{
+									"key": "messageStream",
+									"value": "outbound"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/bounces",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/bounces",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"bounces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/spam",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/spam?fromdate=2018-04-02&messageStream=trans2",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"spam"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2018-04-02"
+								},
+								{
+									"key": "messageStream",
+									"value": "trans2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/sends",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/sends?fromdate=2018-01-11&todate=2020-04-21&messageStream=bulk",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"sends"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2018-01-11"
+								},
+								{
+									"key": "todate",
+									"value": "2020-04-21"
+								},
+								{
+									"key": "messageStream",
+									"value": "bulk"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/tracked",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/tracked?fromdate=2017-02-25&todate=2019-03-01",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"tracked"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2017-02-25"
+								},
+								{
+									"key": "todate",
+									"value": "2019-03-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/opens",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/opens?fromdate=2020-02-09&todate=2020-12-12",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"opens"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2020-02-09"
+								},
+								{
+									"key": "todate",
+									"value": "2020-12-12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/clicks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/clicks?fromdate=2019-07-10&todate=2019-08-12",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"clicks"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2019-07-10"
+								},
+								{
+									"key": "todate",
+									"value": "2019-08-12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/clicks/browserFamilies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/clicks/browserFamilies?fromdate=2019-07-10&todate=2019-08-12",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"clicks",
+								"browserFamilies"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2019-07-10"
+								},
+								{
+									"key": "todate",
+									"value": "2019-08-12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/clicks/platforms",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/clicks/platforms?fromdate=2019-07-10&todate=2020-08-12",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"clicks",
+								"platforms"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2019-07-10"
+								},
+								{
+									"key": "todate",
+									"value": "2020-08-12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/clicks/location",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/clicks/location?fromdate=2019-07-10&todate=2019-08-12",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"clicks",
+								"location"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2019-07-10"
+								},
+								{
+									"key": "todate",
+									"value": "2019-08-12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/clicks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/clicks/browserFamilies?romdate=2019-09-20&todate=2019-10-23",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"clicks",
+								"browserFamilies"
+							],
+							"query": [
+								{
+									"key": "romdate",
+									"value": "2019-09-20"
+								},
+								{
+									"key": "todate",
+									"value": "2019-10-23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/opens/platforms",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/opens/platforms?fromdate=2015-06-01&todate=2019-08-12",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"opens",
+								"platforms"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2015-06-01"
+								},
+								{
+									"key": "todate",
+									"value": "2019-08-12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/opens/emailclients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/opens/emailclients?fromdate=2015-02-25&todate=2019-08-22",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"opens",
+								"emailclients"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2015-02-25"
+								},
+								{
+									"key": "todate",
+									"value": "2019-08-22"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/stats/outbound/opens/readtimes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/stats/outbound/opens/readtimes?fromdate=2018-02-25&todate=2018-12-12",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"stats",
+								"outbound",
+								"opens",
+								"readtimes"
+							],
+							"query": [
+								{
+									"key": "fromdate",
+									"value": "2018-02-25"
+								},
+								{
+									"key": "todate",
+									"value": "2018-12-12"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Triggers",
+			"item": [
+				{
+					"name": "/triggers/tags/id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/triggers/tags/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"triggers",
+								"tags",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/triggers/tags",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"MatchName\": \"name\",\n    \"TrackOpens\": true\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/triggers/tags",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"triggers",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/triggers/tags",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token_clicks}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"MatchName\": \"opens\",\n    \"TrackOpens\": true\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/triggers/tags/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"triggers",
+								"tags",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/triggers/tags/id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/triggers/tags/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"triggers",
+								"tags",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/triggers/tags",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/triggers/tags?count=25&offset=0",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"triggers",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "25"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/triggers/tags",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"MatchName\": \"opens\",\n    \"TrackOpens\": true\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/triggers/tags",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"triggers",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/triggers/inboundRules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/triggers/inboundrules?count=100&offset=0",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"triggers",
+								"inboundrules"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/triggers/inboundRules",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"Rule\": \"example.com\"}"
+						},
+						"url": {
+							"raw": "{{api_url}}/triggers/inboundRules",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"triggers",
+								"inboundRules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/triggers/inboundRules",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/triggers/inboundRules/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"triggers",
+								"inboundRules",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sending",
+			"item": [
+				{
+					"name": "/email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"From\": \"{{from_address}}\",\n \"To\":\"{{email_address}}\",\n \"Subject\": \"subject - {{$randomCatchPhrase}}\",\n \"HtmlBody\":\"test\"\n }"
+						},
+						"url": {
+							"raw": "{{api_url}}/email",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/email - metadata",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"From\":\"{{from_address}}\",\n   \"To\":\"{{email_address}}\",\n   \"Subject\":\"Email subject\",\n   \"Headers\":[\n      {\n         \"Name\":\"Test\",\n         \"Value\":\"Value\"\n      }\n   ],\n   \"Metadata\": {\n   \t\"Test\": \"hey\"\n   },\n   \"HtmlBody\":\"test\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/email",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/email/batch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n{\n    \"From\": \"{{from_address}}\", \n    \"To\": \"{{email_address}}\",\n    \"Subject\": \"Batch email 1\", \n    \"HtmlBody\": \"<html>test</html>\",\n    \"TextBody\": \"test\",\n    \"MessageStream\": \"outbound\"\n},\n{\n    \"From\": \"{{from_address}}\", \n    \"To\": \"{{email_address}}\", \n    \"Subject\": \"Another batch email\", \n    \"HtmlBody\": \"<html>test me</html>\",\n    \"TextBody\": \"test\",\n    \"MessageStream\": \"outbound\"\n}\n]\n"
+						},
+						"url": {
+							"raw": "{{api_url}}//email/batch",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"",
+								"email",
+								"batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/email/withTemplate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"To\": \"{{email_address}}\",\n    \"From\" : \"{{from_address}}\",\n    \"MessageStream\": \"outbound\",\n    \"InlineCss\": true,\n    \"TemplateModel\" : {},\n    \"TemplateAlias\": \"template-alias\"  \n}\n"
+						},
+						"url": {
+							"raw": "{{api_url}}/email/withTemplate",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"email",
+								"withTemplate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/email/batchWithTemplates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Messages\": [\n        { \n        \"To\": \"{{email_address}}\",\n        \"From\" : \"{{from_address}}\",\n        \"MessageStream\": \"outbound\",\n        \"InlineCss\": true,\n        \"TemplateAlias\": \"alias\",\n        \"TemplateModel\" : {}\n        }\n    ]\n}\n"
+						},
+						"url": {
+							"raw": "{{api_url}}/email/batchWithTemplates",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"email",
+								"batchWithTemplates"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Server",
+			"item": [
+				{
+					"name": "/server",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/server?count=100&offset=0",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"server"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/server",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"SmtpApiActivated\": true,\n    \"Color\": \"red\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/server",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"server"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Servers",
+			"item": [
+				{
+					"name": "/servers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/servers?count=0&offset=0",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"",
+								"servers"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "0"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servers/id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/servers/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"servers",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servers/id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n    \"Color\": \"green\"\n            \n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/servers/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"servers",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"test\",\n    \"Color\": \"red\",\n    \"SmtpApiActivated\": true\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/servers",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"servers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servers/id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/servers/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"servers",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/servers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/servers?name=e&count=1&offset=1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"servers"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "e"
+								},
+								{
+									"key": "count",
+									"value": "1"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Signatures",
+			"item": [
+				{
+					"name": "/senderSignatures",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/sendersignatures?offset=0&count=50",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"sendersignatures"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "count",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/senders/id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/senders/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"senders",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/senderSignatures",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\":\"John\",\n  \"FromEmail\":\"{{from_address}}\",\n  \"ConfirmationPersonalNote\": \"personal\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/senderSignatures",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"senderSignatures"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/senderSignatures/id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/sendersignatures/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"sendersignatures",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/senderSignatures/id/resend",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/sendersignatures/{{$randomInt}}/resend",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"sendersignatures",
+								"{{$randomInt}}",
+								"resend"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/senderSignatures/id/RequestNewDKIM",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/sendersignatures/{{$randomInt}}/requestnewdkim",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"sendersignatures",
+								"{{$randomInt}}",
+								"requestnewdkim"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/senderSignatures/id/verifyspf",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/senderSignatures/{{$randomInt}}/verifyspf",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"senderSignatures",
+								"{{$randomInt}}",
+								"verifyspf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/senderSignatures/id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ConfirmationPersonalNote\": \" \"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/sendersignatures/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"sendersignatures",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Signatures - Domains",
+			"item": [
+				{
+					"name": "/domains",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/domains?offset=0&count=10",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"domains"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "count",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/domains/id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/domains/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"domains",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/domains",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\":\"example.com\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/domains",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"domains"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/domains/id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/domains/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"domains",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/domains/id/rotatedkim",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/domains/{{$randomInt}}/rotateDkim",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"domains",
+								"{{$randomInt}}",
+								"rotateDkim"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/domains/id/verifySpf",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/domains/{{$randomInt}}/verifySpf",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"domains",
+								"{{$randomInt}}",
+								"verifySpf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/domains/id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"test.postmark.email\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/domains/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"domains",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/domains/id/verifyDkim",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/domains/{{$randomInt}}/VerifyDKIM",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"domains",
+								"{{$randomInt}}",
+								"VerifyDKIM"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/domains/id/verifyReturnPath",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/domains/{{$randomInt}}/VerifyReturnPath",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"domains",
+								"{{$randomInt}}",
+								"VerifyReturnPath"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Templates",
+			"item": [
+				{
+					"name": "{{api_url}}/templates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n \"TemplateType\": \"Standard\",\n  \"Name\" : \"template\", \n  \"Subject\": \"template subject\",\n  \"HtmlBody\": \"template\",\n  \"TextBody\": \"test\",\n  \"LayoutTemplate\": null,\n  \"ParentTemplateId\": {{$randomInt}}\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/templates",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/templates - layout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n  \"TemplateType\": \"Layout\",\n  \"Name\" : \"Template\", \n  \"HtmlBody\": \"html {{#company}}{{name}}{{/company}} {{{@content}}}\",\n  \"TextBody\": \"text {{{@content}}}\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/templates",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/templates - different example",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"Name\" : \"test\", \n    \"TextBody\": \"test {{#each items}}<p>{{.}}</p>{{/each}}\",\n    \"HtmlBody\": \"<html><head></head><body>test{{#each items}}<p>{{.}}</p>{{/each}} </body></html>\",\n    \"Subject\": \"test\",\n    \"TemplateModel\" : { \"items\": \"item\"}\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/templates",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/templates/push",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n  \"SourceServerId\" : {{$randomInt}}, \n  \"DestinationServerId\": {{$randomInt}},\n  \"PerformChanges\": true\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/templates/push",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates",
+								"push"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/templates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/templates?count=10&offset=0&templateType=standard",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "templateType",
+									"value": "standard"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/templates/id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}/templates/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/templates/id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n  \"Name\" : \"template\", \n  \"TextBody\": \"\",\n  \"HtmlBody\": \"test\",\n  \"Subject\": \"test\",\n  \"Alias\": \"template\",\n  \"LayoutTemplate\": null\n \n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/templates/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/templates/id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{api_url}}/templates/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/templates/validate - array model",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"TemplateType\": \"Standard\",\n    \"TextBody\": \"{{#each employees}}-{{.}}-{{/each}}\",\n    \"HtmlBody\": \"<body><h1>Header</h1>{{#each employees}}<li>{{.}}</li>{{/each}}</body></html>\",\n    \"Subject\": \"Welcome home\",\n    \"TestRenderModel\" : {\"employees\":[\"one\", \"two\", \"three\"]},\n    \"LayoutTemplate\": null,\n    \"InlineCssForHtmlTestRender\": false\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/templates/validate",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/templates/validate model",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"TemplateType\": \"Standard\",\n    \"TextBody\": \"{{first_name}} - {{last_name}}\",\n    \"HtmlBody\": \"<!DOCTYPEhtml><html><head><title>PageTitle</title></head><body><h1>Testcontent</h1><p>{{first_name}}</p><p>{{last_name}}</p></body></html>\",\n    \"Subject\": \"test\",\n    \"TestRenderModel\" : {\"first_name\": \"John\", \"last_name\": \"Smith\"},\n    \"LayoutTemplate\": null,\n    \"InlineCssForHtmlTestRender\": false\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/templates/validate",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/templates/validate - layout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"TemplateType\": \"Layout\",\n    \"TextBody\": \"Text body {{#company}}{{name}}test{{/company}} {{{@content}}}\",\n    \"HtmlBody\": \"<html><head></head><body>{{#company}}{{name}}{{/company}} test {{{@content}}}</body></html>\",\n    \"TestRenderModel\" : {\n    \t\"company\": {\n    \t\"name\": \"name\"\t\n    \t}\n    \t\n    \t}\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/templates/validate",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"templates",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/email/withTemplate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"TemplateAlias\" : \"test\",\n    \"To\": {{from_address}},\n    \"From\" : {{email_address}},\n    \"MessageStream\": \"outbound\",\n    \"TemplateModel\" : {}\n}\n"
+						},
+						"url": {
+							"raw": "{{api_url}}/email/withTemplate",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"email",
+								"withTemplate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{api_url}}/email/batchWithtemplates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"Messages\": [\n\t{ \n    \t\"TemplateAlias\": \"welcome\",\n    \t\"To\": \"{{from_address}}\",\n    \t\"From\" : \"{{email_address}}\",\n\t\t\"TemplateModel\": {}\n    \t\n\t}]\n}\n"
+						},
+						"url": {
+							"raw": "{{api_url}}/email/batchWithTemplates",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"email",
+								"batchWithTemplates"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Streams",
+			"item": [
+				{
+					"name": "/message-stream",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Name\": \"testname\",\n\t\"ID\": \"uniqueId\",\n    \"MessageStreamType\": \"Broadcasts\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/message-streams",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"message-streams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/message-stream",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/message-streams",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"message-streams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/message-stream/{id}/archive",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/message-streams/testName/archive",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"message-streams",
+								"testName",
+								"archive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/message-streams/{id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/message-streams/inbound",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"message-streams",
+								"inbound"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/message-streams/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Description\" : \"description\"\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/message-streams/inbound",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"message-streams",
+								"inbound"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/message-stream/{id}/unarchive",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/message-streams/testName/unarchive",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"message-streams",
+								"testName",
+								"unarchive"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Webhooks",
+			"item": [
+				{
+					"name": "/webhooks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Url\": \"http://www.example.com\",\n    \"MessageStream\": \"outbound\",\n    \"HttpAuth\": {\n        \"Username\": \"test\",\n        \"Password\": \"test\"\n    },\n    \"HttpHeaders\": [\n        {\n            \"Name\": \"Name1\",\n            \"Value\": \"Value1\"\n        },\n        {\n            \"Name\": \"Name2\",\n            \"Value\": \"Value2\"\n        }\n    ],\n    \"Triggers\": {\n        \"Open\": {\n            \"Enabled\": true,\n            \"PostFirstOpenOnly\": true\n        },\n        \"Click\": {\n            \"Enabled\": true\n        },\n        \"Delivery\": {\n            \"Enabled\": true\n        },\n        \"Bounce\": {\n            \"Enabled\": true,\n            \"IncludeContent\": false\n        },\n        \"SpamComplaint\": {\n            \"Enabled\": true,\n            \"IncludeContent\": false\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/webhooks",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/webhooks/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Url\": \"https://example.com\",\n   \t   \"HttpAuth\": {\n    \t\"Username\": \"test\",\n    \t\"Password\": \"test\"\n    },\n    \"HttpHeaders\": [],\n   \"Triggers\": {\n                \"Open\": {\n                    \"Enabled\": false,\n                    \"PostFirstOpenOnly\": false\n                },\n                \"Click\": {\n                    \"Enabled\": false\n                },\n                \"Delivery\": {\n                    \"Enabled\": false\n                },\n                \"Bounce\": {\n                    \"Enabled\": false,\n                    \"IncludeContent\": false\n                },\n                \"SpamComplaint\": {\n                    \"Enabled\": false,\n                    \"IncludeContent\": false\n                }\n            }\n          \n   \n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/webhooks/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"webhooks",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/webhooks/{id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/webhooks/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"webhooks",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/webhooks/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/webhooks/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"webhooks",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/webhooks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/webhooks",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"webhooks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Suppressions",
+			"item": [
+				{
+					"name": "/suppressions/search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/suppressions/search?emailAddress=test@example.com",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"suppressions",
+								"search"
+							],
+							"query": [
+								{
+									"key": "emailAddress",
+									"value": "test@example.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/message-stream/{stream}/suppressions/list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/message-streams/customTest/suppressions/list?count=10&offset=0",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"message-streams",
+								"customTest",
+								"suppressions",
+								"list"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/message-stream/{stream}/suppressions/dump",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/message-streams/outbound/suppressions/dump",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"message-streams",
+								"outbound",
+								"suppressions",
+								"dump"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/message-stream/{stream}/supporessions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"Suppressions\":[\n    {  \n      \"EmailAddress\":\"test@example.com\"\n    }\n  ]  \n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/message-streams/outbound/suppressions",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"message-streams",
+								"outbound",
+								"suppressions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/message-stream/{stream}/supporessions/delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}",
+								"disabled": true
+							},
+							{
+								"key": "X-Postmark-Server-Token",
+								"value": "{{api_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"Suppressions\":[\n    {\n    \t\"EmailAddress\": \"test@example.com\"\n    }\n  ]  \n}"
+						},
+						"url": {
+							"raw": "{{api_url}}/message-streams/transactional/suppressions/delete",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"message-streams",
+								"transactional",
+								"suppressions",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GDPR",
+			"item": [
+				{
+					"name": "/data/removals",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"RequestedBy\": \"{{from_address}}\",\n    \"RequestedFor\": \"{{email_address}}\",\n    \"NotifyWhenCompleted\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/data-removals",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"data-removals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/data/removals/{id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Postmark-Account-Token",
+								"value": "{{account_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/data-removals/{{$randomInt}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"data-removals",
+								"{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
