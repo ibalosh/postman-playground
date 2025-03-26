@@ -15,15 +15,15 @@ I use this collection for testing and exploring Postmark's RESTful endpoints eff
 - A complete set of public Postmark API endpoints
 - Organized folders (e.g. sending, templates, server settings)
 - Example requests with sample payloads
-- Support for environment variables (e.g. API token, ApiUrl etc)
+- Support for environment variables (e.g. API token, API URL etc)
 
 ---
 
-2. Open [Postman](https://www.postman.com/downloads/)
+To start using the collection:
 
-3. Import the collection
-
-4. Set up environment variables
+- Open [Postman](https://www.postman.com/downloads/)
+- Import the collection
+- Set up environment variables
 
 ---
 
