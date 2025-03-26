@@ -1,4 +1,4 @@
-# 📬 my-postman
+# 📬 postman collections
 
 [![Postman](https://img.shields.io/badge/tool-Postman-orange?logo=postman)](https://www.postman.com/)
 [![Postmark](https://img.shields.io/badge/API-Postmark-yellow)](https://postmarkapp.com/developer)
